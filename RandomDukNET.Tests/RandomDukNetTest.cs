@@ -27,28 +27,28 @@ namespace RandomDukNET.Tests
         }
 
         [TestMethod]
-        public void GetImage_ValidIDJpg_ReturnsByteJpegImage()
+        public void GetImage_ValidIDJpg_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
-            byte[] result = manager.GetDuckImageJpeg("1").Result;
+            byte[] result = manager.GetDuckImageJpegById(1).Result;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }
 
         [TestMethod]
-        public void GetImage_ValidIDGif_ReturnsByteGifImage()
+        public void GetImage_ValidIDGif_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
-            byte[] result = manager.GetDuckImageGif("1").Result;
+            byte[] result = manager.GetDuckImageGifById(1).Result;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }
 
         [TestMethod]
-        public void GetImage_InvalidID_Returns404ByteImage()
+        public void GetImage_InvalidID_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
-            byte[] result = manager.GetDuckImageJpeg("abc").Result;
+            byte[] result = manager.GetDuckImageJpegById(-1).Result;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }
@@ -63,7 +63,7 @@ namespace RandomDukNET.Tests
         }
 
         [TestMethod]
-        public void GetHttpImage_InalidStatusCode_Returns404ByteImage()
+        public void GetHttpImage_InalidStatusCode_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
             byte[] result = manager.GetHttpDuckImage("1").Result;
@@ -72,7 +72,7 @@ namespace RandomDukNET.Tests
         }
 
         [TestMethod]
-        public void GetHttpImage_ValidStatusCodeButNotOnAPI_Returns404ByteImage()
+        public void GetHttpImage_ValidStatusCodeButNotOnAPI_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
             byte[] result = manager.GetHttpDuckImage("203").Result;

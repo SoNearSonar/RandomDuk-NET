@@ -18,12 +18,12 @@ namespace RandomDukNET
             return await MakeAPICallGetJson(_url + "/quack");
         }
 
-        public async Task<byte[]> GetDuckImageJpeg(string id)
+        public async Task<byte[]> GetDuckImageJpegById(long id)
         {
             return await MakeAPICallGetContents(_url + $"/{id}.jpg");
         }
 
-        public async Task<byte[]> GetDuckImageGif(string id)
+        public async Task<byte[]> GetDuckImageGifById(long id)
         {
             return await MakeAPICallGetContents(_url + $"/{id}.gif");
         }
@@ -45,19 +45,14 @@ namespace RandomDukNET
             HttpClient client = new HttpClient();
             HttpResponseMessage message = await client.GetAsync(apiCall);
 
-            if (message.StatusCode == HttpStatusCode.OK)
-            {
-
-                byte[] result = await message.Content.ReadAsByteArrayAsync();
-                return result;
-            }
-            else
+            if (message.StatusCode != HttpStatusCode.OK)
             {
                 string api404 = apiCall.Substring(0, apiCall.LastIndexOf('/')) + "/404";
                 message = await client.GetAsync(api404);
-                byte[] result = await message.Content.ReadAsByteArrayAsync();
-                return result;
             }
+
+            byte[] result = await message.Content.ReadAsByteArrayAsync();
+            return result;
         }
 
         private async Task<Duk> MakeAPICallGetJson(string apiCall)
@@ -71,10 +66,8 @@ namespace RandomDukNET
                 string response = await client.GetStringAsync(apiCall);
                 return DeserializeData(response);
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         private Duk DeserializeData(string data)
