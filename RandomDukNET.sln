@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomDukNET", "RandomDukNET\RandomDukNET.csproj", "{3E757EDD-BA55-4A16-8A28-B8E873B4DCA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomDukNET.Tests", "RandomDukNET.Tests\RandomDukNET.Tests.csproj", "{06A69FB2-2B7B-4419-9DA5-4C8C6D84A24C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E757EDD-BA55-4A16-8A28-B8E873B4DCA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E757EDD-BA55-4A16-8A28-B8E873B4DCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E757EDD-BA55-4A16-8A28-B8E873B4DCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E757EDD-BA55-4A16-8A28-B8E873B4DCA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06A69FB2-2B7B-4419-9DA5-4C8C6D84A24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A69FB2-2B7B-4419-9DA5-4C8C6D84A24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A69FB2-2B7B-4419-9DA5-4C8C6D84A24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A69FB2-2B7B-4419-9DA5-4C8C6D84A24C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CC41BEE-92BE-4008-8111-BA9F8C949A09}
+	EndGlobalSection
+EndGlobal
