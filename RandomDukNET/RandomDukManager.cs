@@ -47,7 +47,7 @@ namespace RandomDukNET
 
             if (message.StatusCode != HttpStatusCode.OK)
             {
-                string api404 = apiCall.Substring(0, apiCall.LastIndexOf('/')) + "/404";
+                string api404 = apiCall.Substring(0, apiCall.LastIndexOf('/')) + "/http/404";
                 message = await client.GetAsync(api404);
             }
 
