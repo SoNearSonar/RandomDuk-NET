@@ -57,7 +57,7 @@ namespace RandomDukNET.Tests
         public void GetHttpImage_ValidStatusCode_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
-            byte[] result = manager.GetHttpDuckImage("200").Result;
+            byte[] result = manager.GetHttpDuckImage(200).Result;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }
@@ -66,7 +66,7 @@ namespace RandomDukNET.Tests
         public void GetHttpImage_InalidStatusCode_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
-            byte[] result = manager.GetHttpDuckImage("1").Result;
+            byte[] result = manager.GetHttpDuckImage(1).Result;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }
@@ -75,7 +75,7 @@ namespace RandomDukNET.Tests
         public void GetHttpImage_ValidStatusCodeButNotOnAPI_ReturnsByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
-            byte[] result = manager.GetHttpDuckImage("203").Result;
+            byte[] result = manager.GetHttpDuckImage(203).Result;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }

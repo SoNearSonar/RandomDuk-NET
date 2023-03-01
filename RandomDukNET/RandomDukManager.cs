@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using Newtonsoft.Json;
 using RandomDukNET.Models;
 
@@ -28,9 +28,9 @@ namespace RandomDukNET
             return await MakeAPICallGetContents(_url + $"/{id}.gif");
         }
 
-        public async Task<byte[]> GetHttpDuckImage(string statusCode)
+        public async Task<byte[]> GetHttpDuckImage(int statusCode)
         {
-            if (Enum.TryParse(statusCode, out HttpStatusCode code) && Enum.IsDefined(typeof(HttpStatusCode), code))
+            if (Enum.TryParse(statusCode.ToString(), out HttpStatusCode code) && Enum.IsDefined(typeof(HttpStatusCode), code))
             {
                 return await MakeAPICallGetContents(_url + $"/http/{statusCode}");
             }
