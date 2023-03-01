@@ -79,5 +79,18 @@ namespace RandomDukNET.Tests
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }
+
+        [TestMethod]
+        public void GetImageList_ReturnsList()
+        {
+            RandomDukManager manager = new RandomDukManager();
+            DukList result = manager.GetImageList().Result;
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.ImageFilenames.Count != 0);
+            Assert.IsTrue(result.GifFilenames.Count != 0);
+            Assert.IsTrue(result.HttpDuckFilenames.Count != 0);
+            Assert.IsTrue(result.ImageCount != 0);
+            Assert.IsTrue(result.GifCount != 0);
+        }
     }
 }

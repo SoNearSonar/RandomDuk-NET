@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 using Newtonsoft.Json;
 using RandomDukNET.Models;
 
@@ -10,12 +10,17 @@ namespace RandomDukNET
 
         public async Task<Duk> GetRandom()
         {
-            return await MakeAPICallGetJson(_url + "/random");
+            return await MakeAPICallGetJson<Duk>(_url + "/random");
         }
 
         public async Task<Duk> GetQuack()
         {
-            return await MakeAPICallGetJson(_url + "/quack");
+            return await MakeAPICallGetJson<Duk>(_url + "/quack");
+        }
+
+        public async Task<DukList> GetImageList()
+        {
+            return await MakeAPICallGetJson<DukList>(_url + "/list");
         }
 
         public async Task<byte[]> GetDuckImageJpegById(long id)
@@ -55,7 +60,7 @@ namespace RandomDukNET
             return result;
         }
 
-        private async Task<Duk> MakeAPICallGetJson(string apiCall)
+        private async Task<T?> MakeAPICallGetJson<T>(string apiCall)
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");
@@ -64,15 +69,15 @@ namespace RandomDukNET
             if (message.StatusCode == HttpStatusCode.OK)
             {
                 string response = await client.GetStringAsync(apiCall);
-                return DeserializeData(response);
+                return DeserializeData<T>(response);
             }
 
-            return null;
+            return default;
         }
 
-        private Duk DeserializeData(string data)
+        private T DeserializeData<T>(string data)
         {
-            return JsonConvert.DeserializeObject<Duk>(data);
+            return JsonConvert.DeserializeObject<T>(data);
         }
     }
 }
