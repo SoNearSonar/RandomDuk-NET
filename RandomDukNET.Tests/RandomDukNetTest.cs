@@ -17,6 +17,15 @@ namespace RandomDukNET.Tests
         }
 
         [TestMethod]
+        public void GetRandomImage_ReturnsByteImage()
+        {
+            RandomDukManager manager = new RandomDukManager();
+            byte[] result = manager.GetRandomImage().Result;
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Length != 0);
+        }
+
+        [TestMethod]
         public void GetQuack_ReturnsRandom()
         {
             RandomDukManager manager = new RandomDukManager();

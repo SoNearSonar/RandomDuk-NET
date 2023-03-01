@@ -13,6 +13,11 @@ namespace RandomDukNET
             return await MakeAPICallGetJson<Duk>(_url + "/random");
         }
 
+        public async Task<byte[]> GetRandomImage()
+        {
+            return await MakeAPICallGetContents(_url + "/randomimg");
+        }
+
         public async Task<Duk> GetQuack()
         {
             return await MakeAPICallGetJson<Duk>(_url + "/quack");
