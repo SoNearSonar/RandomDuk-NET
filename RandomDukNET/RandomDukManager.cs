@@ -20,26 +20,12 @@ namespace RandomDukNET
 
         public async Task<byte[]> GetDuckImageJpeg(string id)
         {
-            if (uint.TryParse(id, out uint result))
-            {
-                return await MakeAPICallGetContents(_url + $"/{result}.jpg");
-            }
-            else
-            {
-                return null;
-            }
+            return await MakeAPICallGetContents(_url + $"/{id}.jpg");
         }
 
         public async Task<byte[]> GetDuckImageGif(string id)
         {
-            if (uint.TryParse(id, out uint result))
-            {
-                return await MakeAPICallGetContents(_url + $"/{result}.gif");
-            }
-            else
-            {
-                return null;
-            }
+            return await MakeAPICallGetContents(_url + $"/{id}.gif");
         }
 
         public async Task<byte[]> GetHttpDuckImage(string statusCode)
@@ -67,7 +53,10 @@ namespace RandomDukNET
             }
             else
             {
-                return null;
+                string api404 = apiCall.Substring(0, apiCall.LastIndexOf('/')) + "/404";
+                message = await client.GetAsync(api404);
+                byte[] result = await message.Content.ReadAsByteArrayAsync();
+                return result;
             }
         }
 

@@ -45,11 +45,12 @@ namespace RandomDukNET.Tests
         }
 
         [TestMethod]
-        public void GetImage_InvalidID_DoesNotReturnImage()
+        public void GetImage_InvalidID_Returns404ByteImage()
         {
             RandomDukManager manager = new RandomDukManager();
             byte[] result = manager.GetDuckImageJpeg("abc").Result;
-            Assert.IsNull(result);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Length != 0);
         }
 
         [TestMethod]
@@ -66,6 +67,15 @@ namespace RandomDukNET.Tests
         {
             RandomDukManager manager = new RandomDukManager();
             byte[] result = manager.GetHttpDuckImage("1").Result;
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Length != 0);
+        }
+
+        [TestMethod]
+        public void GetHttpImage_ValidStatusCodeButNotOnAPI_Returns404ByteImage()
+        {
+            RandomDukManager manager = new RandomDukManager();
+            byte[] result = manager.GetHttpDuckImage("203").Result;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length != 0);
         }
