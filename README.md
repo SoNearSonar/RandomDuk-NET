@@ -32,7 +32,7 @@ File.WriteAllBytes("duck_image_400error.jpg", image);
 ### Getting Duk JSON Object:
 ```csharp
 RandomDukManager manager = new RandomDukManager();
-Duk dukObject = await manager.GetRandom(); // await managet.GetQuack() also does the same
+Duk dukObject = await manager.GetRandom(); // await manager.GetQuack(); also does the same
 
 Assert.IsNotNull(dukObject);
 Assert.IsNotNull(dukObject.Message); // Message of duck image
