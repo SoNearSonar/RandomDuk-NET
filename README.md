@@ -5,7 +5,7 @@
 - [Geoffrey Westhoff](https://geoffreywesthoff.nl/) - [Random-d.uk](https://random-d.uk) & [Random-d.uk API](https://random-d.uk/api)
 
 ## Example Use:
-### Getting Random Image & Saving:
+### Getting Random Image:
 ```csharp
 RandomDukManager manager = new RandomDukManager();
 byte[] image = await manager.GetRandomImage();
@@ -16,7 +16,7 @@ File.WriteAllBytes("duck_image_random.jpg", image);
 ### Getting Jpeg Duck Image By ID:
 ```csharp
 RandomDukManager manager = new RandomDukManager();
-byte[] image = await manager.GetDuckImageJpegById(1);
+byte[] image = await manager.GetDuckImageJpegById(1); // Takes in a number representing a ID
 
 File.WriteAllBytes("duck_image_1.jpg", image);
 ```
@@ -24,7 +24,7 @@ File.WriteAllBytes("duck_image_1.jpg", image);
 ### Getting Http Duck Image:
 ```csharp
 RandomDukManager manager = new RandomDukManager();
-byte[] image = await manager.GetHttpDuckImage(400);
+byte[] image = await manager.GetHttpDuckImage(400); // Takes in a number representing a status code
 
 File.WriteAllBytes("duck_image_400error.jpg", image);
 ```
