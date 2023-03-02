@@ -42,7 +42,7 @@ Assert.IsNotNull(dukObject.Url); // Url pointing to the file of duck image
 ### Getting List Of Image Filenames in JSON:
 ```csharp
 RandomDukManager manager = new RandomDukManager();
-DukList duckList = await manager.GetList();
+DukList duckList = await manager.GetImageList();
 
 Assert.IsNotNull(result);
 Assert.IsTrue(result.ImageFilenames.Count != 0); // List of all jpeg file names stored on the web server
