@@ -46,7 +46,7 @@ namespace RandomDukNET
             }
             else
             {
-                return await MakeAPICallGetContents(_url + "/http/400");
+                return await MakeAPICallGetContents(_url + "/http/404");
             }
         }
 
@@ -57,7 +57,7 @@ namespace RandomDukNET
 
             if (message.StatusCode != HttpStatusCode.OK)
             {
-                string api404 = apiCall.Substring(0, apiCall.LastIndexOf('/')) + "/http/404";
+                string api404 = _url + "/http/404";
                 message = await client.GetAsync(api404);
             }
 
