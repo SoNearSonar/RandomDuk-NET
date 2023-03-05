@@ -4,7 +4,23 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Random Duk .NET</Title>
+    <Authors>SoNearSonar</Authors>
+    <Description>A C# API wrapper for the website Random-d.uk. A website that has images of ducks </Description>
+    <PackageProjectUrl>https://github.com/SoNearSonar/RandomDuk-NET</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/SoNearSonar/RandomDuk-NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>random,c#,api</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MSTest.TestFramework" Version="3.0.2" />

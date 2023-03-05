@@ -4,6 +4,9 @@
 ## Credits:
 - [Geoffrey Westhoff](https://geoffreywesthoff.nl/) - [Random-d.uk](https://random-d.uk) & [Random-d.uk API](https://random-d.uk/api)
 
+## NuGet Package:
+[![RandomDukNET NuGet](https://img.shields.io/nuget/vpre/RandomDukNET?label=RandomDukNET&style=flat-square)](https://www.nuget.org/packages/RandomDukNET/)
+
 ## Example Use:
 ### Getting Random Image:
 ```csharp
