@@ -69,6 +69,7 @@ namespace RandomDukNET
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");
+            client.DefaultRequestHeaders.Add("User-Agent", "RandomDUK-NET/1.0");
             HttpResponseMessage message = await client.GetAsync(apiCall);
 
             if (message.StatusCode == HttpStatusCode.OK)
